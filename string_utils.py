@@ -38,14 +38,15 @@ class StringUtils:
     Converts an integer to a 6-digit hex string.
 
     Parameters
-    n - integer to convert
+      n : integer to convert
 
     Returns
-    6-digit hex string representation of the input integer.
-    E.g. 255 -> '0000ff'
-    16777215 -> 'ffffff'
-    0 -> '000000'
-    16777216 -> '01000000' (not 6 digits, but 8)
+      6-digit hex string representation of the input integer.
+      e.g.
+      255      -> '0000ff'
+      16777215 -> 'ffffff'
+      0        -> '000000'
+      16777216 -> '01000000' (not 6 digits, but 8)
     """
     return f'{n:06x}'
 
@@ -53,10 +54,10 @@ class StringUtils:
   def str_hex_to_int(s: str) -> int:
     """
     Parameter
-    s - hex integer represented as a string
+      s : hex integer represented as a string
 
     Returns
-    The int represented by the input string as hex.
+      int represented by the input string
     """
 
     try:
@@ -72,4 +73,43 @@ class StringUtils:
         f'{ErrorUtils.LINE}'\
 
       raise ValueError(err_msg)
+
+  #_____________________________________________________________________
+  def bool_to_str(flag: bool, capitalize: bool = False) -> str:
+    """
+    Prints Boolean string.
+
+    Parameters
+      flag        : Boolean to print
+      capitalize  : Capitalize first letter
+    """
+
+    out_str: str = ''
+
+    if (flag):
+      out_str = 'true'
+    else:
+      out_str = 'false'
+
+    if (capitalize):
+      out_str = f'{out_str[0].upper()}{out_str[1:len(out_str)]}'
+
+    return out_str
+
+  #_____________________________________________________________________
+  def str_to_bool(s: str) -> bool:
+    """
+    Returns boolean corresponding with input string. Will return true
+    if string is any capitalization of the word 'true'.
+
+    Parameters
+      s : any string, assumption s = {'true', 'True', 'false', 'False'}
+
+    Returns
+      bool corresponding to input string
+    """
+
+    lowercase: str = s.lower()
+
+    return lowercase == 'true' or lowercase == 't'
 
