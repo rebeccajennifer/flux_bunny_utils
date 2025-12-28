@@ -40,7 +40,6 @@ import svgwrite
 from shutil import rmtree
 
 from flux_bunny_utils.file_utils import FileUtils
-from flux_bunny_utils.list_utils import ListUtils
 
 
 #_______________________________________________________________________
@@ -51,6 +50,7 @@ class TestConst:
 
   TEST_DIR_NAME         : str = 'test_name'
   TEST_DIR_PARENT       : str = join('flux', 'bunny')
+  TEST_DIR_GRANDPARENT  : str = 'flux'
   TEST_DIR_FULL_PATH    : str = join(TEST_DIR_PARENT, TEST_DIR_NAME)
   TEST_PDF_NAME         : str = 'test.pdf'
   TEST_SVG_NAME         : str = 'test.svg'
@@ -66,13 +66,13 @@ class Helper:
     """
     Removes test directory.
 
-    Parameters:
+    Parameters
       dir_path: Path to directory to remove.
 
-    Side Effects:
+    Side Effects
       Removes test directory
 
-    Returns:
+    Returns
       None
     """
 
@@ -134,18 +134,20 @@ def test_mkdir_no_error() -> None:
 #_______________________________________________________________________
 def test_mkdir_long_path() -> None:
 
-  test_path : str = TestConst.TEST_DIR_FULL_PATH
-  parent    : str = TestConst.TEST_DIR_PARENT
+  test_path   : str = TestConst.TEST_DIR_FULL_PATH
+  parent      : str = TestConst.TEST_DIR_PARENT
+  grandparent : str = TestConst.TEST_DIR_GRANDPARENT
 
   # Prep
   Helper.rm_test_dir(test_path)
   Helper.rm_test_dir(parent)
+  Helper.rm_test_dir(grandparent)
   makedirs(parent)
 
   assert FileUtils.verify_dir(test_path) == True
 
   # Clean up
-  Helper.rm_test_dir(parent)
+  Helper.rm_test_dir(grandparent)
 
   return
 
