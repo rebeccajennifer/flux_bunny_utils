@@ -34,8 +34,8 @@ from os import remove
 from pypdf import PdfReader
 from pypdf import PdfWriter
 
-
 from .error_utils import ErrorUtils
+
 
 #_____________________________________________________________________
 class FileUtils:
