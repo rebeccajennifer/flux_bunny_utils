@@ -39,5 +39,25 @@
       [ "${workspaceFolder}/test_flux_bunny_utils/test_file_utils.py"
       ]
     }
+  , { "name"    : "list-utils-unit-tests"
+    , "type"    : "debugpy"
+    , "request" : "launch"
+    , "module"  : "pytest"
+    , "console" : "integratedTerminal"
+    , "cwd"     : "${workspaceFolder}/.."
+    , "args":
+      [ "${workspaceFolder}/test_flux_bunny_utils/test_list_utils.py"
+      ]
+    }
+  , { "name"    : "string-utils-unit-tests"
+    , "type"    : "debugpy"
+    , "request" : "launch"
+    , "module"  : "pytest"
+    , "console" : "integratedTerminal"
+    , "cwd"     : "${workspaceFolder}/.."
+    , "args":
+      [ "${workspaceFolder}/test_flux_bunny_utils/test_string_utils.py"
+      ]
+    }
   ]
 }
