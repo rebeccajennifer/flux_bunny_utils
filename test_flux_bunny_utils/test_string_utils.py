@@ -29,6 +29,8 @@
 import pytest
 
 from flux_bunny_utils.string_utils import StringUtils
+
+
 #_______________________________________________________________________
 class TestConst:
   """
@@ -97,3 +99,32 @@ def test_str_hex2int_mix_caps_no_prfx():
 def test_str_hex2int_err():
   with pytest.raises(Exception):
     StringUtils.str_hex_to_int(TestConst.ERR_VAL_WITH_0X)
+
+#_______________________________________________________________________
+def test_bool_to_str():
+  assert(StringUtils.bool_to_str(True) == 'true')
+  assert(StringUtils.bool_to_str(False) == 'false')
+  assert(StringUtils.bool_to_str(True, capitalize=True) == 'True')
+  assert(StringUtils.bool_to_str(False, capitalize=True) == 'False')
+
+  assert(StringUtils.bool_to_str(1) == 'true')
+  assert(StringUtils.bool_to_str(0) == 'false')
+  assert(StringUtils.bool_to_str(1, capitalize=True) == 'True')
+  assert(StringUtils.bool_to_str(0, capitalize=True) == 'False')
+
+  assert(StringUtils.bool_to_str(-1) == 'true')
+  assert(StringUtils.bool_to_str(42) == 'true')
+  assert(StringUtils.bool_to_str('foo', capitalize=True) == 'True')
+
+#_______________________________________________________________________
+def test_str_to_bool():
+  assert(StringUtils.str_to_bool('true') == True)
+  assert(StringUtils.str_to_bool('True') == True)
+  assert(StringUtils.str_to_bool('false') == False)
+  assert(StringUtils.str_to_bool('False') == False)
+  assert(StringUtils.str_to_bool('TRUE') == True)
+  assert(StringUtils.str_to_bool('FALSE') == False)
+  assert(StringUtils.str_to_bool('TrUe') == True)
+  assert(StringUtils.str_to_bool('fAlSe') == False)
+  assert(StringUtils.str_to_bool('fAlSe') == False)
+  assert(StringUtils.str_to_bool('foo') == False)
