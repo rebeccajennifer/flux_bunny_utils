@@ -53,7 +53,10 @@ class ErrorUtils:
 
 
   #_____________________________________________________________________
-  def raise_exception_with_desc(err: Exception, desc: str) -> None:
+  def raise_exception_with_desc\
+    ( err: Exception = Exception()
+    , desc: str = ERROR
+    ) -> None:
     """
     Raise exception with descriptive message.
 
