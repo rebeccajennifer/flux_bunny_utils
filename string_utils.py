@@ -64,15 +64,14 @@ class StringUtils:
       if (isinstance(s, str)):
         return int(s, base=16)
 
-    except Exception as error:
-      err_msg: str =\
-        f'{ErrorUtils.ERROR_TYPE}'\
-        f'{type(error).__name__}'\
-        f'{ErrorUtils.DESC}'\
-        f'{ErrorUtils.CONVERSION_ERROR}'\
-        f'{ErrorUtils.LINE}'\
+    except ValueError as error:
+      desc: str = str(
+        f'{ErrorUtils.INVALID_VALUE}'
+        f's = {s}'
+        )
 
-      raise ValueError(err_msg)
+      ErrorUtils.raise_exception_with_desc(error, desc)
+
 
   #_____________________________________________________________________
   def bool_to_str(flag: bool, capitalize: bool = False) -> str:
