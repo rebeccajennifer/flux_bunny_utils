@@ -49,6 +49,7 @@ class ErrorUtils:
   FILE_WITH_DIR_NAME_ERR  : str = 'File exists with the same name: '
   WRONG_FILE_TYPE         : str = 'Wrong file type.'
   FILE_DNE                : str = 'File does not exist: '
+  WRONG_TYPE              : str = 'Wrong input type: '
 
 
   #_____________________________________________________________________
