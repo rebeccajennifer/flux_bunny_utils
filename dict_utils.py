@@ -54,7 +54,7 @@ class DictUtils:
       ErrorUtils.raise_exception_with_desc(err, desc)
 
   #_____________________________________________________________________
-  def get_key_of_max(d: dict) -> tuple:
+  def get_max_tuple(d: dict) -> tuple:
     """
     Returns the key-value pair associated with the largest value in the
     dictionary.
@@ -71,7 +71,7 @@ class DictUtils:
       ErrorUtils.raise_exception_with_desc(err, desc)
 
   #_____________________________________________________________________
-  def get_key_of_min(d: dict) -> tuple:
+  def get_min_tuple(d: dict) -> tuple:
     """
     Returns the key-value pair associated with the smallest value in the
     dictionary.

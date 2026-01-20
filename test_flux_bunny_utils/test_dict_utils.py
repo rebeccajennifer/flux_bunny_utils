@@ -62,7 +62,7 @@ def test_get_key_of_max():
   d_in    : dict  = dict([pair_a, pair_b, pair_c])
 
   pair_max  : tuple = pair_c
-  pair_test : tuple = DictUtils.get_key_of_max(d_in)
+  pair_test : tuple = DictUtils.get_max_tuple(d_in)
 
   assert pair_test == pair_max
 
@@ -75,14 +75,14 @@ def test_get_key_of_min():
   d_in    : dict  = dict([pair_a, pair_b, pair_c])
 
   pair_max  : tuple = pair_a
-  pair_test : tuple = DictUtils.get_key_of_min(d_in)
+  pair_test : tuple = DictUtils.get_min_tuple(d_in)
 
   assert pair_test == pair_max
 
 #_______________________________________________________________________
 def test_get_key_of_max_min_err():
   with pytest.raises(Exception):
-    DictUtils.get_key_of_max(1)
+    DictUtils.get_max_tuple(1)
 
   with pytest.raises(Exception):
-    DictUtils.get_key_of_min(1)
+    DictUtils.get_min_tuple(1)

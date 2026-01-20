@@ -76,11 +76,18 @@ class ErrorUtils:
 
     err_type = type(err)
 
+    py_error: str = ''
+
+    if (err.args):
+      py_error = str(
+        f'\n{ErrorUtils.PY_ERR_LABEL}'
+        f'\n   {err.args[0]}'
+      )
+
     err_msg: str = str(
       f'{ErrorUtils.ERROR_TYPE}{err_type.__name__}'
       f'{ErrorUtils.DESC_LABEL}{desc}'
-      f'\n{ErrorUtils.PY_ERR_LABEL}'
-      f'\n   {err.args[0]}'
+      f'{py_error}'
       f'{ErrorUtils.LINE}'
     )
 
